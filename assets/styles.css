@@ -1,0 +1,170 @@
+
+:root {
+  --ink: #1c2430;
+  --ink-soft: #3d4a5c;
+  --muted: #6b7788;
+  --paper: #f3f6f8;
+  --paper-2: #e8eef3;
+  --line: #c5d0db;
+  --accent: #0f6a6a;
+  --accent-deep: #0a4f4f;
+  --chip: #dce8e8;
+  --warn: #8a5a2b;
+  --max: 46rem;
+  --font-display: "ZCOOL XiaoWei", "Noto Serif SC", serif;
+  --font-body: "Noto Serif SC", "Songti SC", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #d7e6ea 0%, transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, #e4ddd0 0%, transparent 50%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  min-height: 100vh;
+}
+a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+.wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+.site-header {
+  padding: 2.4rem 0 1.2rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.6rem;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 0.35rem;
+  line-height: 1.2;
+}
+.tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+.nav-back { margin: 0 0 1rem; font-size: 0.95rem; }
+.meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0.4rem 0 1.2rem;
+}
+.letter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  margin: 1rem 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+.letter-nav a {
+  display: inline-block;
+  min-width: 1.6rem;
+  text-align: center;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding: 0.1rem 0.15rem;
+}
+.letter-nav a:hover { border-bottom-color: var(--accent); color: var(--accent-deep); }
+.group { margin: 0 0 1.8rem; }
+.group h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-deep);
+}
+.word-list { list-style: none; margin: 0; padding: 0; }
+.word-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--line);
+  align-items: baseline;
+}
+.word-list a.hw {
+  font-size: 1.08rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.word-list a.hw:hover { color: var(--accent); }
+.forms-preview {
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.entry h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.6rem;
+}
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.8rem 0 1.4rem;
+}
+.forms span {
+  background: var(--chip);
+  color: var(--accent-deep);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  font-size: 0.98rem;
+}
+section h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 1.6rem 0 0.7rem;
+  color: var(--accent-deep);
+}
+.cite-list { list-style: none; margin: 0; padding: 0; }
+.cite {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.cite .book {
+  font-weight: 600;
+  color: var(--ink);
+}
+.cite .form { color: var(--accent-deep); margin-top: 0.2rem; }
+.cite .gloss { color: var(--ink-soft); margin-top: 0.25rem; }
+.sources a { display: inline-block; margin: 0.15rem 0.7rem 0.15rem 0; }
+.weak {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.weak h2 { color: var(--warn); }
+.site-footer {
+  margin: 2.5rem 0 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .word-list li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .count { justify-self: start; }
+}
