@@ -54,6 +54,47 @@ a:hover { color: var(--accent); }
   font-size: 0.92rem;
   margin: 0.4rem 0 1.2rem;
 }
+.search {
+  display: block;
+  margin: 1rem 0 0;
+}
+.search input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.55rem 0.75rem;
+  outline: none;
+}
+.search input::placeholder { color: var(--muted); }
+.search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.search-status {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.search-empty {
+  margin: 1.2rem 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .letter-nav {
   display: flex;
   flex-wrap: wrap;
@@ -84,31 +125,48 @@ a:hover { color: var(--accent); }
 .word-list { list-style: none; margin: 0; padding: 0; }
 .word-list li {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.5rem 1rem;
   padding: 0.55rem 0;
   border-bottom: 1px dashed var(--line);
   align-items: baseline;
 }
+.word-list li > div { min-width: 0; }
 .word-list a.hw {
   font-size: 1.08rem;
   color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.word-list a.hw::after {
+  content: " →";
+  color: var(--accent);
+  font-size: 0.92em;
   text-decoration: none;
+  speak: never;
 }
 .word-list a.hw:hover { color: var(--accent); }
+.word-list a.hw:hover::after { color: var(--accent-deep); }
 .forms-preview {
   color: var(--muted);
   font-size: 0.9rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.55;
 }
 .count {
   color: var(--muted);
   font-size: 0.85rem;
   white-space: nowrap;
 }
+.group[hidden],
+.weak[hidden],
+.letter-nav li[hidden],
+.word-list li[hidden] { display: none; }
 .entry h1 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -165,6 +223,6 @@ section h2 {
 }
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .word-list li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .word-list li { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
   .count { justify-self: start; }
 }
